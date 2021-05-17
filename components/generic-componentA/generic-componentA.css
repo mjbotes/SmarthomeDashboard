@@ -1,0 +1,8 @@
+.generic-componentA__container {
+    text-align: center; 
+    font-family: sans-serif;
+}
+
+.generic-componentA__image {
+    width: 20px;
+}
