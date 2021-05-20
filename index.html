@@ -1,41 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./index.js"></script>
-    <script src="./components/components-files.js"></script>
-    <link rel="stylesheet" href="./index.css">
-    <title>Smarthome Dashbaord</title>
-</head>
-<body class="index__page">
-    <generic-componentA class="index__item"
-      id="firstComp"
-      draggable="true"
-      ondragstart="onDragStart(event);"
-      ondragend="onDragEnd(event);"
-      ondragover="onDragOver(event);"
-      ondrop="onDrop(event);"
-      heading="Component 1"
-      subheading="Some functionality"
-    ></generic-componentA>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="./index.js"></script>
+      <script src="./components/components-files.js"></script>
+      <link rel="stylesheet" href="./index.css">
+      <title>Smarthome Dashbaord</title>
+   </head>
+   <body class="index__page">
+      <nav class="nav-bar">
+         <h1>SmartHome Dashboard</h1>
+         <section class="profile-settings">
+            <img src="assets/images/user-profile.png" alt="user profile image" class="default-pic">
+            <img src="assets/images/settings 1.svg" alt="settings-icon" class="icon-img">
+         </section>
+      </nav>
+      <main>
+         <section class="rooms-components">
+            <!-- maybe nested compnents? -->
+            <section class="room-component">
+               <h3>Kitchen</h3>
 
-    <generic-componentB class="index__item"
-      heading="Component 2"
-      subheading="Some functionality"
-      ondragstart="onDragStart(event);"
-      ondragend="onDragEnd(event);"
-      ondragover="onDragOver(event);"
-      ondrop="onDrop(event);"
-    ></generic-componentB>
+                <color-selector
+                id="firstComp"
+                     draggable="true"
+                     heading="Component 1"
+                     subheading="Some functionality"></color-selector>
 
-    <script>
-        //Set order of flex elements
-        var components = document.getElementsByClassName("index__item");
-          for (var i = 0; i < components.length; i++) {
-              components.item(i).style.order = i;
-          }
-      </script>
-</body>
+                     <onoff-switch
+                id="firstComp"
+                     draggable="true"
+                     heading="Component 1"
+                     subheading="Some functionality"></onoff-switch>
+
+                  <add-component 
+                    heading="Add">
+                  </add-component>
+               
+            </section>
+            <hr>
+            <!-- maybe nested compnents? -->
+            <section class="room-component">
+               <h3>Kitchen</h3>
+               
+                  <generic-componentA 
+                     id="firstComp"
+                     draggable="true"
+                     ondragstart="onDragStart(event);"
+                     ondragend="onDragEnd(event);"
+                     ondragover="onDragOver(event);"
+                     ondrop="onDrop(event);"
+                     heading="Component 1"
+                     subheading="Some functionality"
+                     ></generic-componentA>
+
+                  <generic-componentB 
+                     id="firstComp"
+                     draggable="true"
+                     ondragstart="onDragStart(event);"
+                     ondragend="onDragEnd(event);"
+                     ondragover="onDragOver(event);"
+                     ondrop="onDrop(event);"
+                     heading="Component 1"
+                     subheading="Some functionality"
+                     ></generic-componentB>
+
+            </section>
+            <hr>
+            <!-- maybe nested compnents? -->
+            <section class="room-component">
+               <h3>Kitchen</h3>
+
+                  <generic-componentA 
+                     id="firstComp"
+                     draggable="true"
+                     ondragstart="onDragStart(event);"
+                     ondragend="onDragEnd(event);"
+                     ondragover="onDragOver(event);"
+                     ondrop="onDrop(event);"
+                     heading="Component 1"
+                     subheading="Some functionality"
+                     ></generic-componentA>
+
+                  <generic-componentB 
+                     id="firstComp"
+                     draggable="true"
+                     ondragstart="onDragStart(event);"
+                     ondragend="onDragEnd(event);"
+                     ondragover="onDragOver(event);"
+                     ondrop="onDrop(event);"
+                     heading="Component 1"
+                     subheading="Some functionality"
+                     ></generic-componentB>
+
+            </section>
+            <script>
+               //Set order of flex elements
+               var components = document.getElementsByClassName("index__item");
+                 for (var i = 0; i < components.length; i++) {
+                     components.item(i).style.order = i;
+                 }
+               
+               			
+            </script>
+         </section>
+      </main>
+   </body>
 </html>

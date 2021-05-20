@@ -36,7 +36,61 @@ function onDrop(event) {
         .clearData();
 }
 
-function makeHidden(contentid, inputid) {
-    document.getElementById(contentid).hidden = !document.getElementById(contentid).hidden;
-    document.getElementById(inputid).hidden = !document.getElementById(inputid).hidden;
+function makeHidden(element, contentid, inputid) {
+    var children = element.parentElement.childNodes;
+    var content = findChild(children, contentid);
+    var input = findChild(children, inputid);
+
+    content.hidden = !content.hidden;
+    input.hidden = !input.hidden;
+}
+
+function findChild(children, childid) {
+
+    for(var i = 0; i < children.length; i++)
+    {
+        if(children[i].id == childid)
+            return children[i];
+        else 
+        {
+            const result = findChild(children[i].childNodes, childid);
+            if(result)
+                return result;
+        }
+    }
+    return ;
+    
+    
+}
+
+function addComponent(e) {
+    e = e.parentElement;
+
+    makeHidden(e, 'acContent', 'acInput');
+    var children = e.childNodes;
+    var type;
+    var device;
+    var func;
+    for(var i = 0; i < children.length; i++)
+    {
+        if(children[i].id == 'acType')
+            type = children[i].value;
+        else if(children[i].id == 'acDevice')
+            device = children[i].value;
+        else if(children[i].id == 'acFunction')
+            func = children[i].value;
+        
+    }
+    var thisElement = e;   
+    while(e.className  != 'room-component'){
+        console.log(e.className);
+        thisElement = e;
+        e = e.parentElement;
+    }
+
+    var nelement = document.createElement(type);
+    nelement.setAttribute('heading', device);
+    
+    e.insertBefore(nelement, thisElement);  
+    
 }
