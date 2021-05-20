@@ -29,17 +29,18 @@
       </button>
     </section>
 
-    <section class="hidden-forms">
+    <section id="hidden-forms">
       <form action="" id="add-room-form">
+        <h3>Register Room</h3>
         <!-- We can get this using javascript.. on hold for now -->
         <input type="hidden" name="user">
-        <input type="text" name="room-name" id="room-name">
+        <input type="text" name="room-name" id="room-name" placeholder="Enter Room Name">
         <button>Add</button>
         <button type="button" id="close-rooms-form">Cancel</button>
       </form>
 
       <form action="" id="add-device-form">
-        <input type="text" name="device-name" id="device-name">
+        <h3>Register Device</h3>
         <select class="form-select select-block" aria-label="Select Room" onchange="setRoom()" id="room-select">
           <option selected>Select Room</option>
 
@@ -48,6 +49,8 @@
           <option value="2">Bathroom</option>
           <option value="3">Kitchen</option>
         </select>
+        <input type="text" name="device-name" id="device-name" placeholder="Enter Device Name">
+        <br>
         <button>Add</button>
         <button type="button" id="close-devices-form">Cancel</button>
       </form>

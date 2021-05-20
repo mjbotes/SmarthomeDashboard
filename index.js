@@ -44,6 +44,11 @@ const addRoomBtn = document.getElementById("add-room-btn");
 const addDeviceBtn = document.getElementById("add-device-btn");
 const roomForm = document.getElementById("add-room-form");
 const deviceForm = document.getElementById("add-device-form");
+var selectedRoom = '';
+
+function setRoom() {
+    selectedRoom = document.getElementById("room-select").value;
+}
 
 function addRoomsOptions(responseData) {
     responseData.forEach(item => {
@@ -62,19 +67,26 @@ function addRoomsOptions(responseData) {
 function openRoomsForm() {
     console.log("add room");
     let roomsForm = document.getElementById("add-room-form");
+    let form = document.getElementById("hidden-forms");
 
     roomsForm.style.display = "block";
+    form.style.display = "block";
 }
 
 function openDevicesForm() {
     console.log("add device");
+    let form = document.getElementById("hidden-forms");
     let deviceForm = document.getElementById("add-device-form");
 
     deviceForm.style.display = "block";
+    form.style.display = "block";
 }
 
 function closeForm(formId) {
+    let form = document.getElementById("hidden-forms");
+
     document.getElementById(formId).style.display = "none";
+    form.style.display = "none";
 }
 
 closeRoomsBtn.addEventListener('click', function (event) {
@@ -114,24 +126,20 @@ function registerRoom() {
     //   let userId = document.getElementById("room-name");
     let userId = 0; //this is a dummy id
 
-    let roomsForm = document.getElementById("add-room-form");
-
-    roomsForm.style.display = "none"
+    closeForm("add-room-form")
     console.log(roomName);
 }
 
 function registerDevice() {
-    let deviceName = document.getElementById("device-name");
-    let room = document.getElementById("room-select").value;
+    let deviceName = document.getElementById("device-name").value;
+    
     //   retrieve the Id from session data
     //   let userId = document.getElementById("room-name");
     let userId = 0; //this is a dummy id
 
-    let deviceForm = document.getElementById("add-device-form");
-
-    deviceForm.style.display = "none";
+    closeForm("add-device-form")
     console.log(deviceName);
-    console.log(room);
+    console.log(selectedRoom);
 }
 
 //#endregion
