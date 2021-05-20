@@ -94,3 +94,22 @@ function addComponent(e) {
     e.insertBefore(nelement, thisElement);  
     
 }
+
+function addRoom(roomName) {
+    var nelement = document.createElement('section');
+    nelement.setAttribute('class', "room-component");
+    nelement.innerHTML = `<h3>${roomName}</h3>
+                            <add-component 
+                            heading="Add device">
+                        </add-component>`
+    document.getElementById('allrooms').appendChild(nelement);
+}
+
+function editRoomName(e, contentid, inputid) {
+    makeHidden(e.parentElement, contentid, inputid);
+    e.parentElement.parentElement.childNodes[1].childNodes[1].innerHTML = e.parentElement.childNodes[0].value;
+}
+
+function deleteRoom(element) {
+    element.parentElement.parentElement.remove();
+}

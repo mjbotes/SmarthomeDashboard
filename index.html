@@ -18,10 +18,19 @@
          </section>
       </nav>
       <main>
-         <section class="rooms-components">
+        <div class="card">
+          <img src="assets/images/plus.svg" alt="" srcset="" onclick="addRoom('New room')">
+          <h3>Add Room</h3>
+        </div>
+         <section id="allrooms" class="rooms-components">
             <!-- maybe nested compnents? -->
             <section class="room-component">
-               <h3>Kitchen</h3>
+              <div id="roomName">
+               <h3 >Kitchen </h3>
+               <input type="button" onclick="makeHidden(this.parentElement,'roomInput', 'roomName')">
+               <input type="button" onclick="deleteRoom(this)">
+              </div>
+               <div class="headerbuttons" id="roomInput" hidden="true"><input type="text"><input type="button" onclick="editRoomName(this, 'roomInput', 'roomName' )"></div> 
 
                 <color-selector
                 id="firstComp"
@@ -36,11 +45,11 @@
                      subheading="Some functionality"></onoff-switch>
 
                   <add-component 
-                    heading="Add">
+                    heading="Add device">
                   </add-component>
                
             </section>
-            <hr>
+            
             <!-- maybe nested compnents? -->
             <section class="room-component">
                <h3>Kitchen</h3>
@@ -68,7 +77,7 @@
                      ></generic-componentB>
 
             </section>
-            <hr>
+            
             <!-- maybe nested compnents? -->
             <section class="room-component">
                <h3>Kitchen</h3>
@@ -96,13 +105,13 @@
                      ></generic-componentB>
 
             </section>
+            
             <script>
                //Set order of flex elements
                var components = document.getElementsByClassName("index__item");
                  for (var i = 0; i < components.length; i++) {
                      components.item(i).style.order = i;
                  }
-               
                			
             </script>
          </section>

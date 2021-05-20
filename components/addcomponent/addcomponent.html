@@ -1,5 +1,5 @@
 <div id='addcomp' class='generic-componentA__container index__item'>
-    <link rel="stylesheet" href="./components/generic-componentA/generic-componentA.css">
+    <link rel="stylesheet" href="./components/addComponent/addComponent.css">
     <div id="acContent" class='generic-componentA__content'>
         <image id="imgAdd" src="./assets/images/plus.svg" onclick="makeHidden(this.parentElement, 'acContent','acInput')"></image>
         <h1 id="heading"></h1>
@@ -25,9 +25,10 @@
             <option value="Lights on">Lights on</option>
             <option value="AAA">AAA</option>
             <option value="BBB">BBB</option>
-            <option value="CCC">AuCCCdi</option>
+            <option value="CCC">CCC</option>
         </select>
 
-        <input type="button" onclick="addComponent(this);">
+        <input type="button" class="acbutton" value="Confirm" onclick="addComponent(this);">
+        <input type="button" class="acbutton" value="Cancel" onclick="makeHidden(this.parentElement, 'acContent','acInput')">
     </div>
 </div>
