@@ -57,6 +57,7 @@ nav > h1 {
     text-align: center;
     border-radius: 6px;
     margin: 12px;
+    margin-bottom: 3%;
     background-color: #fff;
   }
 
@@ -67,7 +68,7 @@ nav > h1 {
 
 main {
     width: -webkit-fill-available;
-    margin-top: 10vh;
+    margin-top: 12vh;
 }
 
 section.card-top-content > img {
@@ -142,3 +143,38 @@ hr {
     margin-top: 19px;
     margin-bottom: 19px;
 }
+
+img#imgAdd {
+    width: 30px;
+    height: 40px;
+}
+div#addcomp ,
+.onoffswitch__container.index__item,
+.colorSelector__container.index__item {
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    /* border-bottom: 1px dotted black; */
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgb(0 0 0 / 55%);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    bottom: 100%;
+    left: 50%;
+
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }

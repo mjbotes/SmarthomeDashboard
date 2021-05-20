@@ -22,13 +22,20 @@
           <img src="assets/images/plus.svg" alt="" srcset="" onclick="addRoom('New room')">
           <h3>Add Room</h3>
         </div>
+        <hr>
          <section id="allrooms" class="rooms-components">
             <!-- maybe nested compnents? -->
             <section class="room-component">
               <div id="roomName">
                <h3 >Room 1</h3>
-               <input type="button" onclick="makeHidden(this.parentElement,'roomInput', 'roomName')">
-               <input type="button" onclick="deleteElement(this.parentElement.parentElement)">
+               <div class="tooltip">
+                  <input type="button" onclick="makeHidden(this.parentElement,'roomInput', 'roomName')">
+                  <span class="tooltiptext">Hide</span>
+                </div>
+               <div class="tooltip">
+                  <input type="button" onclick="deleteElement(this.parentElement.parentElement)">
+                  <span class="tooltiptext">Delete</span>
+                </div>
               </div>
                <div class="headerbuttons" id="roomInput" hidden="true"><input type="text" value="Room 1"><input type="button" onclick="editRoomName(this, 'roomInput', 'roomName' )"></div> 
 

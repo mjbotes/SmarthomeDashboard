@@ -68,15 +68,28 @@ function addRoomsOptions(responseData) {
     if (responseData == null)
         return;
     responseData.forEach(item => {
-        var roomElem = document.getElementById('room-select');
-        var opt = document.createElement('option');
-        var node = document.createTextNode(item.roomName);
-        var att = document.createAttribute("value"); 
-        att.value = item.id;
+        var roomElem = document.getElementById('allrooms');
+        var section = document.createElement('section');
+        var sectionClassAtt = document.createAttribute('class');
+        var sectionIdAtt = document.createAttribute('id');
+        sectionClassAtt.value = "room-component";
+        sectionIdAtt.value = "room-component";
+        section.setAttribute(sectionClassAtt);
+        section.setAttribute(sectionIdAtt);
+        roomElem.appendChild(section);
 
-        opt.appendChild(node);
-        opt.setAttributeNode(att);
-        roomElem.appendChild(opt);
+        var sectionElem = document.getElementById('room-component');
+        var div = document.createElement('div');
+        var divIdAtt = document.createAttribute('id');
+        divIdAtt.value = "rootName";
+        div.setAttribute(divIdAtt);
+        sectionElem.appendChild(div);
+
+        var divElem = document.getElementById('rootName');
+        var h3 = document.createElement('h3');
+        var h3Text = document.createTextNode(item.roomName);
+        h3.appendChild(h3Text);
+        divElem.appendChild(h3);
     });
 }
 
