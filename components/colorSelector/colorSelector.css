@@ -1,12 +1,12 @@
-.generic-componentA__container { 
+.colorSelector__container { 
     font-family: sans-serif;
 }
 
-.generic-componentA__image {
+.colorSelector__image {
     width: 20px;
 }
 
-.generic-componentA__icon {
+.colorSelector__icon {
     position: relative;
     display: block;
     width: 20px;
@@ -14,17 +14,17 @@
     margin-left: auto;
 }
 
-.generic-componentA__content { 
+.colorSelector__content { 
     text-align: center;
     font-family: sans-serif;
 }
 
-.generic-componentA__inputs {
+.colorSelector__inputs {
     
     min-width: none;
 }
 
-.generic-componentA__label {
+.colorSelector__label {
     font-size: 10px;
     display: block;
     padding-top: 10px;

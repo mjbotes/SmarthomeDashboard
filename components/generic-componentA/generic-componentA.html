@@ -1,10 +1,26 @@
-<head>
+<div class='generic-componentA__container index__item'>
     <link rel="stylesheet" href="./components/generic-componentA/generic-componentA.css">
-</head>
+    <input type="image" class="generic-componentA__icon" src="./assets/images/settings.png" onclick="makeHidden(this, 'gcaContent','gcaInput')"/>
+    <div id="gcaContent" class='generic-componentA__content'>
+        <h1 id="heading"></h1>
+        <p id="subheading"></p>
+        <image id="img" class='generic-componentA__image' src="./assets/images/r.png" ></image>
+    </div>
+    <div id="gcaInput" class="generic-componentA__inputs" hidden="true">
+        <label class="generic-componentA__label">Device</label>
+        <select id="gcaSelectDevice" type="text">
+            <option value="r.png">Device1</option>
+            <option value="b.png">Device2</option>
+            <option value="settings.png">Device3</option>
+            <option value="Device4">Device4</option>
+        </select>
 
-
-<div class='generic-componentA__container'>
-    <h1 id="heading"></h1>
-    <p id="subheading"></p>
-    <image id="img" class='generic-componentA__image' src="./assets/images/r.png" ></image>
+        <label class="generic-componentA__label">On Button</label>
+        <select id="gcaSelectOnButton" type="text">
+            <option value="Lights on">Lights on</option>
+            <option value="AAA">AAA</option>
+            <option value="BBB">BBB</option>
+            <option value="CCC">AuCCCdi</option>
+        </select>
+    </div>
 </div>

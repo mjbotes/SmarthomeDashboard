@@ -1,5 +1,5 @@
 //gca
-class genericComponentA extends HTMLElement {
+class colorSelector extends HTMLElement {
   constructor() {
     super();
 
@@ -22,7 +22,7 @@ class genericComponentA extends HTMLElement {
 
   render() {
     const that = this;
-    fetch('./components/generic-componentA/generic-componentA.html')
+    fetch('./components/colorSelector/colorSelector.html')
       .then(function (response) {
         return response.text();
       })
@@ -32,13 +32,17 @@ class genericComponentA extends HTMLElement {
         doc.getElementById('heading').innerHTML = that.heading;
         doc.getElementById('subheading').innerHTML = that.subheading;
         //function to make call using dropdown list values
-        doc.getElementById('img').onclick = function() { 
-          console.log(findChild(that.childNodes,'gcaSelectDevice').value)
-          this.src = "./assets/images/" + findChild(that.childNodes,'gcaSelectDevice').value; 
+        /*doc.getElementById('img').onclick = function() { 
+          console.log(findChild(that.childNodes,'csSelectDevice').value)
+          this.src = "./assets/images/" + findChild(that.childNodes,'csSelectDevice').value; 
+        };*/
+        doc.getElementById('csSelectDevice').onchange = function() { 
+          const ddl = findChild(that.childNodes,'csSelectDevice');
+          findChild(that.childNodes,'heading').innerHTML = ddl.options[ddl.selectedIndex].text; 
         };
         that.appendChild(doc.documentElement.getElementsByTagName('body')[0]);
       });
   }
 }
 
-customElements.define("generic-componenta", genericComponentA);
+customElements.define("color-selector", colorSelector);
