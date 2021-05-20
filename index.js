@@ -99,6 +99,10 @@ function addRoom(roomName) {
     var nelement = document.createElement('section');
     nelement.setAttribute('class', "room-component");
     nelement.innerHTML = `<h3>${roomName}</h3>
+            <input type="button" onclick="makeHidden(this.parentElement,'roomInput', 'roomName')">
+            <input type="button" onclick="deleteElement(this.parentElement.parentElement)">
+        </div>
+            <div class="headerbuttons" id="roomInput" hidden="true"><input type="text" value="Room 1"><input type="button" onclick="editRoomName(this, 'roomInput', 'roomName' )"></div> 
                             <add-component 
                             heading="Add device">
                         </add-component>`
