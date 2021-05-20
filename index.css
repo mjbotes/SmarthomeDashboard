@@ -128,3 +128,8 @@ section.rooms-components > hr{
 hr {
     border-color: #c5bbbb4d;
 }
+
+.hidden-forms #add-device-form,
+.hidden-forms #add-room-form {
+    display: none;
+}

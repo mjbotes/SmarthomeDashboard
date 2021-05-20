@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./index.js"></script>
+    
     <script src="./components/components-files.js"></script>
     <link rel="stylesheet" href="./index.css">
     <title>Smarthome Dashbaord</title>
@@ -19,15 +19,42 @@
   </nav>
   <main>
     <section class="add-component">
-      <div class="card">
+      <button id="add-room-btn" class="card">
         <img src="assets/images/plus.svg" alt="" srcset="">
         <h3>Add Room</h3>
-      </div>
-      <div class="card">
+      </button>
+      <button id="add-device-btn" class="card">
         <img src="assets/images/plus.svg" alt="" srcset="">
         <h3>Add Device</h3>
-      </div>
+      </button>
     </section>
+
+    <section class="hidden-forms">
+      <form action="" id="add-room-form">
+        <!-- We can get this using javascript.. on hold for now -->
+        <input type="hidden" name="user">
+        <input type="text" name="room-name" id="room-name">
+        <button>Add</button>
+        <button type="button" id="close-rooms-form">Cancel</button>
+      </form>
+
+      <form action="" id="add-device-form">
+        <input type="text" name="device-name" id="device-name">
+        <select class="form-select select-block" aria-label="Select Room" onchange="setRoom()" id="room-select">
+          <option selected>Select Room</option>
+
+          <!-- These should be from the db -->
+          <option value="1">Bedroom</option>
+          <option value="2">Bathroom</option>
+          <option value="3">Kitchen</option>
+        </select>
+        <button>Add</button>
+        <button type="button" id="close-devices-form">Cancel</button>
+      </form>
+    </section>
+
+
+
     <hr>
     <section class="rooms-components">
       <!-- maybe nested compnents? -->
@@ -167,6 +194,7 @@
       ondrop="onDrop(event);"
     ></generic-componentB> -->
 
+    <script src="./index.js"></script>
     <script>
         //Set order of flex elements
         var components = document.getElementsByClassName("index__item");
