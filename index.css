@@ -12,4 +12,5 @@
     background: white;
     height: 31%;
     width: calc(25% - 4px);
+    min-width: 300px;
 }

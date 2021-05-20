@@ -30,8 +30,9 @@ class genericComponentA extends HTMLElement {
         var doc = parser.parseFromString(res, 'text/html');
         doc.getElementById('heading').innerHTML = that.heading;
         doc.getElementById('subheading').innerHTML = that.subheading;
+        //function to make call using dropdown list values
         doc.getElementById('img').onclick = function() { 
-          this.src = "./assets/images/" + document.getElementById('gcaInpOn').value; 
+          this.src = "./assets/images/" + document.getElementById('gcaSelectDevice').value; 
         };
         that.appendChild(doc.documentElement);
       });

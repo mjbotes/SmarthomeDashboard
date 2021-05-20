@@ -26,9 +26,11 @@
 
 .generic-componentA__label {
     font-size: 10px;
+    display: block;
+    padding-top: 10px;
 }
 
-input {
+select {
     font-size: 20px;
     position: relative;
     width: 90%;
