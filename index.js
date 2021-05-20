@@ -45,12 +45,28 @@ const addDeviceBtn = document.getElementById("add-device-btn");
 const roomForm = document.getElementById("add-room-form");
 const deviceForm = document.getElementById("add-device-form");
 var selectedRoom = '';
+var url = "";
+
+
+const getRooms = async() => {
+    await axios.get(url)
+    .then(response => {
+        if (response.status == 200){
+            console.log(response)
+            addRoomsOptions(response.data);
+        }
+   })
+    .catch(error => console.error(error));
+   };
+
 
 function setRoom() {
     selectedRoom = document.getElementById("room-select").value;
 }
 
 function addRoomsOptions(responseData) {
+    if (responseData == null)
+        return;
     responseData.forEach(item => {
         var roomElem = document.getElementById('room-select');
         var opt = document.createElement('option');
@@ -126,7 +142,17 @@ function registerRoom() {
     //   let userId = document.getElementById("room-name");
     let userId = 0; //this is a dummy id
 
+    axios.post(url, {
+        roomName: roomName
+      })
+      .then(function (response) {
+        console.log(response);
+      });
+
     closeForm("add-room-form")
+
+
+
     console.log(roomName);
 }
 
@@ -137,9 +163,17 @@ function registerDevice() {
     //   let userId = document.getElementById("room-name");
     let userId = 0; //this is a dummy id
 
+    axios.post(url, {
+        deviceName: deviceName
+      })
+      .then(function (response) {
+        console.log(response);
+      });
     closeForm("add-device-form")
     console.log(deviceName);
     console.log(selectedRoom);
 }
+
+getRooms();
 
 //#endregion
