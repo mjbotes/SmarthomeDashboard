@@ -26,11 +26,11 @@
             <!-- maybe nested compnents? -->
             <section class="room-component">
               <div id="roomName">
-               <h3 >Kitchen </h3>
+               <h3 >Room 1</h3>
                <input type="button" onclick="makeHidden(this.parentElement,'roomInput', 'roomName')">
-               <input type="button" onclick="deleteRoom(this)">
+               <input type="button" onclick="deleteElement(this.parentElement.parentElement)">
               </div>
-               <div class="headerbuttons" id="roomInput" hidden="true"><input type="text"><input type="button" onclick="editRoomName(this, 'roomInput', 'roomName' )"></div> 
+               <div class="headerbuttons" id="roomInput" hidden="true"><input type="text" value="Room 1"><input type="button" onclick="editRoomName(this, 'roomInput', 'roomName' )"></div> 
 
                 <color-selector
                 id="firstComp"
@@ -52,58 +52,31 @@
             
             <!-- maybe nested compnents? -->
             <section class="room-component">
-               <h3>Kitchen</h3>
+              <div id="roomName">
+                <h3>Room 1</h3>
+                <input type="button" onclick="makeHidden(this.parentElement,'roomInput', 'roomName')">
+                <input type="button" onclick="deleteElement(this.parentElement.parentElement)">
+               </div>
+                <div class="headerbuttons" id="roomInput" hidden="true"><input type="text" value="Room2"><input type="button" onclick="editRoomName(this, 'roomInput', 'roomName' )"></div> 
                
-                  <generic-componentA 
-                     id="firstComp"
-                     draggable="true"
-                     ondragstart="onDragStart(event);"
-                     ondragend="onDragEnd(event);"
-                     ondragover="onDragOver(event);"
-                     ondrop="onDrop(event);"
-                     heading="Component 1"
-                     subheading="Some functionality"
-                     ></generic-componentA>
-
-                  <generic-componentB 
-                     id="firstComp"
-                     draggable="true"
-                     ondragstart="onDragStart(event);"
-                     ondragend="onDragEnd(event);"
-                     ondragover="onDragOver(event);"
-                     ondrop="onDrop(event);"
-                     heading="Component 1"
-                     subheading="Some functionality"
-                     ></generic-componentB>
-
+               <add-component 
+               heading="Add device">
+             </add-component>
             </section>
             
             <!-- maybe nested compnents? -->
             <section class="room-component">
-               <h3>Kitchen</h3>
+              <div id="roomName">
+                <h3 >Room 3</h3>
+                <input type="button" onclick="makeHidden(this.parentElement,'roomInput', 'roomName')">
+                <input type="button" onclick="deleteElement(this.parentElement.parentElement)">
+               </div>
+                <div class="headerbuttons" id="roomInput" hidden="true"><input type="text" value='Room 3'><input type="button" onclick="editRoomName(this, 'roomInput', 'roomName' )"></div> 
 
-                  <generic-componentA 
-                     id="firstComp"
-                     draggable="true"
-                     ondragstart="onDragStart(event);"
-                     ondragend="onDragEnd(event);"
-                     ondragover="onDragOver(event);"
-                     ondrop="onDrop(event);"
-                     heading="Component 1"
-                     subheading="Some functionality"
-                     ></generic-componentA>
 
-                  <generic-componentB 
-                     id="firstComp"
-                     draggable="true"
-                     ondragstart="onDragStart(event);"
-                     ondragend="onDragEnd(event);"
-                     ondragover="onDragOver(event);"
-                     ondrop="onDrop(event);"
-                     heading="Component 1"
-                     subheading="Some functionality"
-                     ></generic-componentB>
-
+               <add-component 
+               heading="Add device">
+             </add-component>
             </section>
             
             <script>

@@ -110,6 +110,6 @@ function editRoomName(e, contentid, inputid) {
     e.parentElement.parentElement.childNodes[1].childNodes[1].innerHTML = e.parentElement.childNodes[0].value;
 }
 
-function deleteRoom(element) {
-    element.parentElement.parentElement.remove();
+function deleteElement(element) {
+    element.remove();
 }

@@ -1,12 +1,12 @@
-.generic-componentA__container { 
+.onoffswitch__container { 
     font-family: sans-serif;
 }
 
-.generic-componentA__image {
+.onoffswitch__image {
     width: 20px;
 }
 
-.generic-componentA__icon {
+.onoffswitch__icon {
     position: relative;
     display: block;
     width: 20px;
@@ -14,17 +14,17 @@
     margin-left: auto;
 }
 
-.generic-componentA__content { 
+.onoffswitch__content { 
     text-align: center;
     font-family: sans-serif;
 }
 
-.generic-componentA__inputs {
+.onoffswitch__inputs {
     
     min-width: none;
 }
 
-.generic-componentA__label {
+.onoffswitch__label {
     font-size: 10px;
     display: block;
     padding-top: 10px;
