@@ -1,10 +1,15 @@
 <head>
     <link rel="stylesheet" href="./components/generic-componentA/generic-componentA.css">
 </head>
-
-
-<div class='generic-componentA__container'>
-    <h1 id="heading"></h1>
-    <p id="subheading"></p>
-    <image id="img" class='generic-componentA__image' src="./assets/images/r.png" ></image>
+<div class='generic-componentA__container'></div>
+    <input type="image" class="generic-componentA__icon" src="./assets/images/settings.png" onclick="makeHidden('gcaContent','gcaInput')"/>
+    <div id="gcaContent" class='generic-componentA__content'>
+        <h1 id="heading"></h1>
+        <p id="subheading"></p>
+        <image id="img" class='generic-componentA__image' src="./assets/images/r.png" ></image>
+    </div>
+    <div id="gcaInput" class="generic-componentA__inputs" hidden="true">
+        <label class="generic-componentA__label">Button on</label>
+        <input id="gcaInpOn" type="text">
+    </div>
 </div>

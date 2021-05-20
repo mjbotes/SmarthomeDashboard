@@ -10,7 +10,6 @@
 .index__item {
     border-radius: 10px;
     background: white;
-    text-align: center;
     height: 31%;
     width: calc(25% - 4px);
 }

@@ -35,3 +35,8 @@ function onDrop(event) {
         .dataTransfer
         .clearData();
 }
+
+function makeHidden(contentid, inputid) {
+    document.getElementById(contentid).hidden = !document.getElementById(contentid).hidden;
+    document.getElementById(inputid).hidden = !document.getElementById(inputid).hidden;
+}

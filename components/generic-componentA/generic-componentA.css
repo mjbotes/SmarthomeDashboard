@@ -1,8 +1,36 @@
-.generic-componentA__container {
-    text-align: center; 
+.generic-componentA__container { 
     font-family: sans-serif;
 }
 
 .generic-componentA__image {
     width: 20px;
+}
+
+.generic-componentA__icon {
+    position: relative;
+    display: block;
+    width: 20px;
+    margin-right: 5px;
+    margin-left: auto;
+}
+
+.generic-componentA__content { 
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.generic-componentA__inputs {
+    
+    min-width: none;
+}
+
+.generic-componentA__label {
+    font-size: 10px;
+}
+
+input {
+    font-size: 20px;
+    position: relative;
+    width: 90%;
+    max-width: 300px;
 }

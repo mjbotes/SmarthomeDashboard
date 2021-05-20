@@ -30,7 +30,9 @@ class genericComponentA extends HTMLElement {
         var doc = parser.parseFromString(res, 'text/html');
         doc.getElementById('heading').innerHTML = that.heading;
         doc.getElementById('subheading').innerHTML = that.subheading;
-        doc.getElementById('img').onclick = function() { this.src = "./assets/images/b.png"; };
+        doc.getElementById('img').onclick = function() { 
+          this.src = "./assets/images/" + document.getElementById('gcaInpOn').value; 
+        };
         that.appendChild(doc.documentElement);
       });
   }
