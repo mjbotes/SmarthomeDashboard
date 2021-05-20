@@ -1,5 +1,5 @@
 //gca
-class genericComponentA extends HTMLElement {
+class onoffswitch extends HTMLElement {
   constructor() {
     super();
 
@@ -22,7 +22,7 @@ class genericComponentA extends HTMLElement {
 
   render() {
     const that = this;
-    fetch('./components/generic-componentA/generic-componentA.html')
+    fetch('./components/onoffswitch/onoffswitch.html')
       .then(function (response) {
         return response.text();
       })
@@ -31,14 +31,29 @@ class genericComponentA extends HTMLElement {
         var doc = parser.parseFromString(res, 'text/html');
         doc.getElementById('heading').innerHTML = that.heading;
         doc.getElementById('subheading').innerHTML = that.subheading;
+        
         //function to make call using dropdown list values
         doc.getElementById('img').onclick = function() { 
-          console.log(findChild(that.childNodes,'gcaSelectDevice').value)
-          this.src = "./assets/images/" + findChild(that.childNodes,'gcaSelectDevice').value; 
+          if (this.value == 'on')
+          {
+            this.value = 'off';
+            this.src = "./assets/images/r.png";
+          }
+          else {
+            this.value = 'on';
+            this.src = "./assets/images/b.png";
+          }
+          
+          //make call
+          //findChild(that.childNodes,'oosSelectDevice').value; 
+        };
+        doc.getElementById('oosSelectDevice').onchange = function() { 
+          const ddl = findChild(that.childNodes,'oosSelectDevice');
+          findChild(that.childNodes,'heading').innerHTML = ddl.options[ddl.selectedIndex].text; 
         };
         that.appendChild(doc.documentElement.getElementsByTagName('body')[0]);
       });
   }
 }
 
-customElements.define("generic-componenta", genericComponentA);
+customElements.define("onoff-switch", onoffswitch);

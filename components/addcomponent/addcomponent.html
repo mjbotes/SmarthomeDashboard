@@ -1,0 +1,34 @@
+<div id='addcomp' class='generic-componentA__container index__item'>
+    <link rel="stylesheet" href="./components/addComponent/addComponent.css">
+    <div id="acContent" class='generic-componentA__content'>
+        <image id="imgAdd" src="./assets/images/plus.svg" onclick="makeHidden(this.parentElement, 'acContent','acInput')"></image>
+        <h1 id="heading"></h1>
+    </div>
+    <div id="acInput" class="generic-componentA__inputs" hidden="true">
+        <label class="generic-componentA__label">Component</label>
+        
+        <select id="acType" type="text">
+            <option value="onoff-switch">On off button</option>
+            <option value="color-selector">Color picker</option>
+        </select>
+        
+        <label class="generic-componentA__label">Device</label>
+        <select id="acDevice" type="text">
+            <option value="r.png">Button click</option>
+            <option value="b.png">Device2</option>
+            <option value="settings.png">Device3</option>
+            <option value="Device4">Device4</option>
+        </select>
+
+        <label class="generic-componentA__label">On Button</label>
+        <select id="acFunction" type="text">
+            <option value="Lights on">Lights on</option>
+            <option value="AAA">AAA</option>
+            <option value="BBB">BBB</option>
+            <option value="CCC">CCC</option>
+        </select>
+
+        <input type="button" class="acbutton" value="Confirm" onclick="addComponent(this);">
+        <input type="button" class="acbutton" value="Cancel" onclick="makeHidden(this.parentElement, 'acContent','acInput')">
+    </div>
+</div>
