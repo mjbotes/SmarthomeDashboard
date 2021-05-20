@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="./index.js"></script>
+      <script src="./components/components-files.js"></script>
+      <link rel="stylesheet" href="./index.css">
+      <title>Smarthome Dashbaord</title>
+   </head>
+   <body class="index__page">
+      <nav class="nav-bar">
+         <h1>SmartHome Dashboard</h1>
+         <section class="profile-settings">
+            <img src="assets/images/user-profile.png" alt="user profile image" class="default-pic">
+            <img src="assets/images/settings 1.svg" alt="settings-icon" class="icon-img">
+         </section>
+      </nav>
+      <main>
+        <div class="card">
+          <img src="assets/images/plus.svg" alt="" srcset="" onclick="addRoom('New room')">
+          <h3>Add Room</h3>
+        </div>
+         <section id="allrooms" class="rooms-components">
+            <!-- maybe nested compnents? -->
+            <section class="room-component">
+              <div id="roomName">
+               <h3 >Room 1</h3>
+               <input type="button" onclick="makeHidden(this.parentElement,'roomInput', 'roomName')">
+               <input type="button" onclick="deleteElement(this.parentElement.parentElement)">
+              </div>
+               <div class="headerbuttons" id="roomInput" hidden="true"><input type="text" value="Room 1"><input type="button" onclick="editRoomName(this, 'roomInput', 'roomName' )"></div> 
+
+                <color-selector 
+                id="firstComp"
+                     draggable="true"
+                     heading="Component 1"
+                     subheading="Some functionality"></color-selector>
+
+                     <onoff-switch
+                id="firstComp"
+                     draggable="true"
+                     heading="Component 1"
+                     subheading="Some functionality"></onoff-switch>
+
+                  <add-component 
+                    heading="Add device">
+                  </add-component>
+               
+            </section>
+            
+            <!-- maybe nested compnents? -->
+            <section class="room-component">
+              <div id="roomName">
+                <h3>Room 2</h3>
+                <input type="button" onclick="makeHidden(this.parentElement,'roomInput', 'roomName')">
+                <input type="button" onclick="deleteElement(this.parentElement.parentElement)">
+               </div>
+                <div class="headerbuttons" id="roomInput" hidden="true"><input type="text" value="Room2"><input type="button" onclick="editRoomName(this, 'roomInput', 'roomName' )"></div> 
+               
+               <add-component 
+               heading="Add device">
+             </add-component>
+            </section>
+            
+            <!-- maybe nested compnents? -->
+            <section class="room-component">
+              <div id="roomName">
+                <h3 >Room 3</h3>
+                <input type="button" onclick="makeHidden(this.parentElement,'roomInput', 'roomName')">
+                <input type="button" onclick="deleteElement(this.parentElement.parentElement)">
+               </div>
+                <div class="headerbuttons" id="roomInput" hidden="true"><input type="text" value='Room 3'><input type="button" onclick="editRoomName(this, 'roomInput', 'roomName' )"></div> 
+
+
+               <add-component 
+               heading="Add device">
+             </add-component>
+            </section>
+            
+            <script>
+               //Set order of flex elements
+               var components = document.getElementsByClassName("index__item");
+                 for (var i = 0; i < components.length; i++) {
+                     components.item(i).style.order = i;
+                 }
+               			
+            </script>
+         </section>
+      </main>
+   </body>
+</html>
