@@ -41,7 +41,35 @@ class colorSelector extends HTMLElement {
           findChild(that.childNodes,'heading').innerHTML = ddl.options[ddl.selectedIndex].text; 
         };
         that.appendChild(doc.documentElement.getElementsByTagName('body')[0]);
+        getDeviceFunctions();
       });
+
+      const getDeviceFunctions = async() => {
+      await axios.get(url+"functions/deviceId/?deviceId="+3, {headers: {"Access-Control-Allow-Origin": "*"}})
+        .then(response => {
+            if (response.status == 200){
+                console.log(response)
+                addFunctionOptions(response.data);
+            }
+       })
+        .catch(error => console.error(error))
+      };
+
+    function addFunctionOptions(responseData) {
+      responseData.forEach(item => {
+        var functionElem = document.getElementById('csSelectOnButton');
+        console.log(deviceElem);
+        var opt = document.createElement('option');
+        var node = document.createTextNode(item.Name);
+        var att = document.createAttribute("value");
+        att.value = item.DeviceID;
+
+        opt.appendChild(node);
+        opt.setAttributeNode(att);
+        functionElem.appendChild(opt);
+      });
+
+    }
   }
 }
 
