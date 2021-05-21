@@ -1,27 +1,23 @@
 <div class='onoffswitch__container index__item'>
     <link rel="stylesheet" href="./components/onoffswitch/onoffswitch.css">
-    <image class="onoffswitch__icon" src="./assets/images/delete.png" onclick="deleteElement(this.parentElement)"></image>
-    <input type="image" class="onoffswitch__icon" src="./assets/images/settings.png" onclick="makeHidden(this, 'gcaContent','gcaInput')"/>
-    <div id="gcaContent" class='onoffswitch__content'>
+    <div class="more-options">
+        <image class="onoffswitch__icon" src="./assets/images/delete.png" onclick="deleteElement(this.parentElement)"></image>
+        <input type="image" class="onoffswitch__icon" src="./assets/images/settings.png" onclick="makeHidden(this.parentElement, 'oosContent','oosInput')"/>
+    </div>
+    <div id="oosContent" class='onoffswitch__content'>
         <h1 id="heading"></h1>
         <p id="subheading"></p>
         <image id="img" class='onoffswitch__image' src="./assets/images/r.png" ></image>
     </div>
-    <div id="gcaInput" class="onoffswitch__inputs" hidden="true">
+    <div id="oosInput" class="onoffswitch__inputs" hidden="true">
         <label class="onoffswitch__label">Device</label>
         <select id="oosSelectDevice" type="text">
-            <option value="r.png">Device1</option>
-            <option value="b.png">Device2</option>
-            <option value="settings.png">Device3</option>
-            <option value="Device4">Device4</option>
+            <option selected>Select Device</option>
         </select>
 
         <label class="onoffswitch__label">On Button</label>
         <select id="oosSelectOnButton" type="text">
-            <option value="Lights on">Lights on</option>
-            <option value="AAA">AAA</option>
-            <option value="BBB">BBB</option>
-            <option value="CCC">AuCCCdi</option>
+            <option selected>Select Function</option>
         </select>
     </div>
 </div>
