@@ -1,20 +1,20 @@
 function onDragStart(event) {
     event
-      .dataTransfer
-      .setData('text/plain', event.target.id);
+        .dataTransfer
+        .setData('text/plain', event.target.id);
 
     event
-    .currentTarget
-    .style
-    .backgroundColor = '#BFFBF7';
+        .currentTarget
+        .style
+        .backgroundColor = '#BFFBF7';
 }
 
 function onDragEnd(event) {
 
     event
-    .currentTarget
-    .style
-    .backgroundColor = '#fff';
+        .currentTarget
+        .style
+        .backgroundColor = '#fff';
 }
 
 function onDragOver(event) {
@@ -58,9 +58,9 @@ function findChild(children, childid) {
                 return result;
         }
     }
-    return ;
-    
-    
+    return;
+
+
 }
 
 function addComponent(e) {
@@ -81,8 +81,8 @@ function addComponent(e) {
             func = child.value;
         
     }
-    var thisElement = e;   
-    while(e.className  != 'room-component'){
+    var thisElement = e;
+    while (e.className != 'room-component') {
         console.log(e.className);
         thisElement = e;
         e = e.parentElement;
@@ -90,9 +90,9 @@ function addComponent(e) {
 
     var nelement = document.createElement(type);
     nelement.setAttribute('heading', device);
-    
-    e.insertBefore(nelement, thisElement);  
-    
+
+    e.insertBefore(nelement, thisElement);
+
 }
 
 function addRoom(roomName) {
@@ -105,6 +105,16 @@ function addRoom(roomName) {
             <input type="button" value="Delete" onclick="deleteElement(this.parentElement.parentElement)">
         </section>
             <section class="headerbuttons" id="roomInput" hidden="true"><input type="text" value="New room"><input type="button" value="Confirm" onclick="editRoomName(this, 'roomInput', 'roomName' )"></section> 
+    <div class=\"tooltip\">\
+    <button class=\"hide-image-btn\" type=\"button\" onclick=\"makeHidden(this.parentElement.parentElement,'roomInput', 'roomName')\"></button>\
+    <span class=\"tooltiptext\">Hide</span>\
+  </div>\
+ <div class=\"tooltip\">\
+    <button class=\"delete-image-btn\" type=\"button\" onclick=\"deleteElement(this.parentElement.parentElement.parentElement)\"></button>\
+    <span class=\"tooltiptext\">Delete</span>\
+  </div>
+        </div>
+            <div class="headerbuttons" id="roomInput" hidden="true"><input type="text" value="Room 1"><button type="button" onclick="editRoomName(this, 'roomInput', 'roomName' )">Ok</button></div> 
                             <add-component 
                             heading="Add device">
                         </add-component>
@@ -130,28 +140,31 @@ var url = "https://smarthome-dashboard-api.azurewebsites.net";
 var devicesList;
 
 
-const getRooms = async() => {
-    await axios.get(url+"/rooms/userId/?userId="+userId, {headers: {"Access-Control-Allow-Origin": "*",
-    "Accept":"*/*"
-}})
-    .then(response => {
-        if (response.status == 200){
-            console.log(response)
-            addRoomsOptions(response.data);
+const getRooms = async () => {
+    await axios.get(url + "/rooms/userId/?userId=" + userId, {
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Accept": "*/*"
         }
-   })
-    .catch(error => console.error(error));
-   };
+    })
+        .then(response => {
+            if (response.status == 200) {
+                console.log(response)
+                addRoomsOptions(response.data);
+            }
+        })
+        .catch(error => console.error(error));
+};
 
 function getDevices(roomId) {
-    axios.get(url+"/devices/roomId/?roomId="+roomId, {headers: {"Access-Control-Allow-Origin": "*"}})
-    .then(response => {
-        if (response.status == 200){
-            devicesList = response.data;
-        }
-   })
-    .catch(error => console.error(error)).
-    finally(()=>{return response.data});
+    axios.get(url + "/devices/roomId/?roomId=" + roomId, { headers: { "Access-Control-Allow-Origin": "*" } })
+        .then(response => {
+            if (response.status == 200) {
+                devicesList = response.data;
+            }
+        })
+        .catch(error => console.error(error)).
+        finally(() => { return response.data });
 }
 
 // var testRoom = [{"RoomID":5,"RoomName":"bedroom","UserID":1}, {"RoomID":5,"RoomName":"bathroom","UserID":1}];
@@ -164,6 +177,7 @@ function setRoom() {
 // addRoomsOptions(testRoom);
 
 function addRoomsOptions(responseData) {
+
     if (responseData == null)
         return;
     var roomElem = document.getElementById('allrooms');
@@ -178,7 +192,7 @@ function addRoomsOptions(responseData) {
         roomElem.appendChild(section);
         // var devices = getDevices(item.RoomID);
         var devices = devicesList;
-        
+
         devices.forEach(device => {
             var parent = document.getElementsByClassName("room-component")[index];
             var deviceHtml = "\
@@ -197,18 +211,18 @@ function addRoomsOptions(responseData) {
               <color-selector\
               id=\"firstComp\"\
                    draggable=\"true\"\
-                   heading="+ device.Name +"\
+                   heading="+ device.Name + "\
                    subheading=\"Some functionality\"></color-selector>\
                    <onoff-switch\
               id=\"firstComp\"\
                    draggable=\"true\"\
-                   heading="+ device.Name +"\
+                   heading="+ device.Name + "\
                    subheading=\"Some functionality\"></onoff-switch>\
                 <add-component\
                   heading=\"Add device\">\
                 </add-component>\
           ";
-          parent.innerHTML = deviceHtml;
+            parent.innerHTML = deviceHtml;
         });
         index++;
     });
