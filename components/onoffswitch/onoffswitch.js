@@ -38,11 +38,11 @@ class onoffswitch extends HTMLElement {
           console.log(this.value);
           if (this.value == 'on') {
             this.value = 'off';
-            this.src = "./assets/images/r.png";
+            this.src = "./assets/images/off.png";
           }
           else {
             this.value = 'on';
-            this.src = "./assets/images/b.png";
+            this.src = "./assets/images/on.png";
           }
         };
         doc.getElementById('oosSelectDevice').onchange = function () {
