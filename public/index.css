@@ -161,6 +161,10 @@ hr {
     margin-bottom: 19px;
 }
 
+.headerbuttons > button {
+    margin: 0px 10px;
+}
+
 img#imgAdd {
     width: 30px;
     height: 40px;

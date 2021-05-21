@@ -41,10 +41,12 @@ class colorSelector extends HTMLElement {
           findChild(that.childNodes,'heading').innerHTML = ddl.options[ddl.selectedIndex].text; 
         };
         that.appendChild(doc.documentElement.getElementsByTagName('body')[0]);
-        getDeviceFunctions();
+        getCPDeviceFunctions();
+        addCPDeviceOptions(testDevice);
       });
-
-      const getDeviceFunctions = async() => {
+      
+      var testDevice = [{ "DeviceID": 2, "Name": "test      ", "Url": "test.com  ", "RoomID": 1 }, { "DeviceID": 3, "Name": "test      ", "Url": "test.com  ", "RoomID": 1 }, { "DeviceID": 4, "Name": "test      ", "Url": "test.com  ", "RoomID": 1 }, { "DeviceID": 5, "Name": "test      ", "Url": "test.com  ", "RoomID": 1 }, { "DeviceID": 6, "Name": "test      ", "Url": "test.com  ", "RoomID": 1 }, { "DeviceID": 8, "Name": "test      ", "Url": "test.com  ", "RoomID": 1 }, { "DeviceID": 7, "Name": "test      ", "Url": "test.com  ", "RoomID": 1 }];
+      const getCPDeviceFunctions = async() => {
       await axios.get(url+"functions/deviceId/?deviceId="+3, {headers: {"Access-Control-Allow-Origin": "*"}})
         .then(response => {
             if (response.status == 200){
@@ -67,6 +69,22 @@ class colorSelector extends HTMLElement {
         opt.appendChild(node);
         opt.setAttributeNode(att);
         functionElem.appendChild(opt);
+      });
+
+    }
+
+    function addCPDeviceOptions(responseData) {
+      responseData.forEach(item => {
+        var deviceElem = document.getElementById('csSelectDevice');
+        console.log(deviceElem);
+        var opt = document.createElement('option');
+        var node = document.createTextNode(item.Name);
+        var att = document.createAttribute("value");
+        att.value = item.DeviceID;
+
+        opt.appendChild(node);
+        opt.setAttributeNode(att);
+        deviceElem.appendChild(opt);
       });
 
     }
