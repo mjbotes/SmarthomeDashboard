@@ -1,15 +1,15 @@
-<div class='onoffswitch__container index__item'>
+<section class='onoffswitch__container index__item'>
     <link rel="stylesheet" href="./components/onoffswitch/onoffswitch.css">
-    <div class="more-options">
-        <image class="onoffswitch__icon" src="./assets/images/delete.png" onclick="deleteElement(this.parentElement)"></image>
+    <section class="more-options">
+        <image class="onoffswitch__icon" src="./assets/images/delete.png" onclick="deleteElement(this.parentElement.parentElement)"></image>
         <input type="image" class="onoffswitch__icon" src="./assets/images/settings.png" onclick="makeHidden(this.parentElement, 'oosContent','oosInput')"/>
-    </div>
-    <div id="oosContent" class='onoffswitch__content'>
+    </section>
+    <section id="oosContent" class='onoffswitch__content'>
         <h1 id="heading"></h1>
         <p id="subheading"></p>
         <image id="img" class='onoffswitch__image' src="./assets/images/r.png" ></image>
-    </div>
-    <div id="oosInput" class="onoffswitch__inputs" hidden="true">
+    </section>
+    <section id="oosInput" class="onoffswitch__inputs" hidden="true">
         <label class="onoffswitch__label">Device</label>
         <select id="oosSelectDevice" type="text">
             <option selected>Select Device</option>
@@ -19,5 +19,5 @@
         <select id="oosSelectOnButton" type="text">
             <option selected>Select Function</option>
         </select>
-    </div>
-</div>
+    </section>
+</section>

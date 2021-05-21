@@ -1,15 +1,15 @@
-<div class='colorSelector__container index__item'>
+<section class='colorSelector__container index__item'>
     <link rel="stylesheet" href="./components/colorSelector/colorSelector.css">
-    <div class="more-options">
-        <image class="colorSelector__icon" src="./assets/images/delete.png" onclick="deleteElement(this.parentElement)"></image>
+    <section class="more-options">
+        <image class="colorSelector__icon" src="./assets/images/delete.png" onclick="deleteElement(this.parentElement.parentElement)"></image>
         <input type="image" class="colorSelector__icon" src="./assets/images/settings.png" onclick="makeHidden(this.parentElement, 'csContent','csInput')"/>
-    </div>
-    <div id="csContent" class='colorSelector__content'>
+    </section>
+    <section id="csContent" class='colorSelector__content'>
         <h1 id="heading"></h1>
         <p id="subheading"></p>
         <input type="color">
-    </div>
-    <div id="csInput" class="colorSelector__inputs" hidden="true">
+    </section>
+    <section id="csInput" class="colorSelector__inputs" hidden="true">
         <label class="colorSelector__label">Device</label>
         <select id="csSelectDevice" type="text">
             <option value="r.png">Device1</option>
@@ -25,5 +25,5 @@
             <option value="BBB">BBB</option>
             <option value="CCC">AuCCCdi</option>
         </select>
-    </div>
-</div>
+    </section>
+</section>
