@@ -1,7 +1,9 @@
 <div class='colorSelector__container index__item'>
     <link rel="stylesheet" href="./components/colorSelector/colorSelector.css">
-    <image class="colorSelector__icon" src="./assets/images/delete.png" onclick="deleteElement(this.parentElement)"></image>
-    <input type="image" class="colorSelector__icon" src="./assets/images/settings.png" onclick="makeHidden(this, 'csContent','csInput')"/>
+    <div class="more-options">
+        <image class="colorSelector__icon" src="./assets/images/delete.png" onclick="deleteElement(this.parentElement)"></image>
+        <input type="image" class="colorSelector__icon" src="./assets/images/settings.png" onclick="makeHidden(this.parentElement, 'csContent','csInput')"/>
+    </div>
     <div id="csContent" class='colorSelector__content'>
         <h1 id="heading"></h1>
         <p id="subheading"></p>
