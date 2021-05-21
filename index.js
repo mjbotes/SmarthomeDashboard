@@ -1,20 +1,20 @@
 function onDragStart(event) {
     event
-        .dataTransfer
-        .setData('text/plain', event.target.id);
+      .dataTransfer
+      .setData('text/plain', event.target.id);
 
     event
-        .currentTarget
-        .style
-        .backgroundColor = '#BFFBF7';
+    .currentTarget
+    .style
+    .backgroundColor = '#BFFBF7';
 }
 
 function onDragEnd(event) {
 
     event
-        .currentTarget
-        .style
-        .backgroundColor = '#fff';
+    .currentTarget
+    .style
+    .backgroundColor = '#fff';
 }
 
 function onDragOver(event) {
@@ -34,6 +34,88 @@ function onDrop(event) {
     event
         .dataTransfer
         .clearData();
+}
+
+function makeHidden(element, contentid, inputid) {
+    var children = element.parentElement.childNodes;
+    var content = findChild(children, contentid);
+    var input = findChild(children, inputid);
+
+    content.hidden = !content.hidden;
+    input.hidden = !input.hidden;
+}
+
+function findChild(children, childid) {
+
+    for(var i = 0; i < children.length; i++)
+    {
+        if(children[i].id == childid)
+            return children[i];
+        else 
+        {
+            const result = findChild(children[i].childNodes, childid);
+            if(result)
+                return result;
+        }
+    }
+    return ;
+    
+    
+}
+
+function addComponent(e) {
+    e = e.parentElement;
+
+    makeHidden(e, 'acContent', 'acInput');
+    var children = e.childNodes;
+    var type;
+    var device;
+    var func;
+    for(var i = 0; i < children.length; i++)
+    {
+        if(children[i].id == 'acType')
+            type = children[i].value;
+        else if(children[i].id == 'acDevice')
+            device = children[i].value;
+        else if(children[i].id == 'acFunction')
+            func = children[i].value;
+        
+    }
+    var thisElement = e;   
+    while(e.className  != 'room-component'){
+        console.log(e.className);
+        thisElement = e;
+        e = e.parentElement;
+    }
+
+    var nelement = document.createElement(type);
+    nelement.setAttribute('heading', device);
+    
+    e.insertBefore(nelement, thisElement);  
+    
+}
+
+function addRoom(roomName) {
+    var nelement = document.createElement('section');
+    nelement.setAttribute('class', "room-component");
+    nelement.innerHTML = `<h3>${roomName}</h3>
+            <input type="button" onclick="makeHidden(this.parentElement,'roomInput', 'roomName')">
+            <input type="button" onclick="deleteElement(this.parentElement.parentElement)">
+        </div>
+            <div class="headerbuttons" id="roomInput" hidden="true"><input type="text" value="Room 1"><input type="button" onclick="editRoomName(this, 'roomInput', 'roomName' )"></div> 
+                            <add-component 
+                            heading="Add device">
+                        </add-component>`
+    document.getElementById('allrooms').appendChild(nelement);
+}
+
+function editRoomName(e, contentid, inputid) {
+    makeHidden(e.parentElement, contentid, inputid);
+    e.parentElement.parentElement.childNodes[1].childNodes[1].innerHTML = e.parentElement.childNodes[0].value;
+}
+
+function deleteElement(element) {
+    element.remove();
 }
 
 
@@ -75,10 +157,14 @@ function getDevices(roomId) {
     finally(()=>{return response.data});
 }
 
+var testRoom = [{"RoomID":5,"RoomName":"bedroom","UserID":1}, {"RoomID":5,"RoomName":"bathroom","UserID":1}];
+var testDevice = [{"DeviceID":2,"Name":"test      ","Url":"test.com  ","RoomID":1},{"DeviceID":3,"Name":"test      ","Url":"test.com  ","RoomID":1},{"DeviceID":4,"Name":"test      ","Url":"test.com  ","RoomID":1},{"DeviceID":5,"Name":"test      ","Url":"test.com  ","RoomID":1},{"DeviceID":6,"Name":"test      ","Url":"test.com  ","RoomID":1},{"DeviceID":8,"Name":"test      ","Url":"test.com  ","RoomID":1},{"DeviceID":7,"Name":"test      ","Url":"test.com  ","RoomID":1}];
 
 function setRoom() {
     selectedRoom = document.getElementById("room-select").value;
 }
+
+addRoomsOptions(testRoom);
 
 function addRoomsOptions(responseData) {
     if (responseData == null)
@@ -86,11 +172,16 @@ function addRoomsOptions(responseData) {
     var roomElem = document.getElementById('allrooms');
     let index = 0;
 
-    return;
     responseData.forEach(item => {
-        var html = "<section class=\"room-component\"></section>";
-        roomElem.appendChild(html);
-        var devices = getDevices(item.RoomID);
+        // var html = "<section class=\"room-component\"></section>";
+        var section = document.createElement('section');
+        var sectionClassAtt = document.createAttribute('class');
+        sectionClassAtt.value = "room-component";
+        section.setAttributeNode(sectionClassAtt);
+
+        roomElem.appendChild(section);
+        // var devices = getDevices(item.RoomID);
+        var devices = testDevice;
         
         devices.forEach(device => {
             var parent = document.getElementsByClassName("room-component")[index];
@@ -243,6 +334,6 @@ function closeForm(formId) {
 //     console.log(selectedRoom);
 // }
 
-getRooms();
+// getRooms();
 
 //#endregion

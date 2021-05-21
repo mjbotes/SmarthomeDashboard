@@ -56,4 +56,34 @@ class onoffswitch extends HTMLElement {
   }
 }
 
+var url = "https://smarthome-dashboard-api.azurewebsites.net";
+var testDevice = [{"DeviceID":2,"Name":"test      ","Url":"test.com  ","RoomID":1},{"DeviceID":3,"Name":"test      ","Url":"test.com  ","RoomID":1},{"DeviceID":4,"Name":"test      ","Url":"test.com  ","RoomID":1},{"DeviceID":5,"Name":"test      ","Url":"test.com  ","RoomID":1},{"DeviceID":6,"Name":"test      ","Url":"test.com  ","RoomID":1},{"DeviceID":8,"Name":"test      ","Url":"test.com  ","RoomID":1},{"DeviceID":7,"Name":"test      ","Url":"test.com  ","RoomID":1}];
+// const getDevices = async() => {
+//   await axios.get(url+"/devices/roomId/?roomId="+1, {headers: {"Access-Control-Allow-Origin": "*"}})
+//     .then(response => {
+//         if (response.status == 200){
+//             console.log(response)
+//             addDevicesOptions(response.data);
+//         }
+//    })
+//     .catch(error => console.error(error))};
+
+addDevicesOptions(testDevice);
+
+function addDevicesOptions(responseData) {
+  responseData.forEach(item => {
+      var deviceElem = document.getElementById('oosSelectDevice');
+      console.log(deviceElem);
+      var opt = document.createElement('option');
+      var node = document.createTextNode(item.Name);
+      var att = document.createAttribute("value"); 
+      att.value = item.DeviceID;
+
+      opt.appendChild(node);
+      opt.setAttributeNode(att);
+      deviceElem.appendChild(opt);
+  });
+
+}
+
 customElements.define("onoff-switch", onoffswitch);
