@@ -1,10 +1,10 @@
-<div id='addcomp' class='generic-componentA__container index__item'>
+<section id='addcomp' class='generic-componentA__container index__item'>
     <link rel="stylesheet" href="./components/addComponent/addComponent.css">
-    <div id="acContent" class='generic-componentA__content'>
+    <section id="acContent" class='generic-componentA__content'>
         <image id="imgAdd" src="./assets/images/plus.svg" onclick="makeHidden(this.parentElement, 'acContent','acInput')"></image>
         <h1 id="heading"></h1>
-    </div>
-    <div id="acInput" class="generic-componentA__inputs" hidden="true">
+    </section>
+    <section id="acInput" class="generic-componentA__inputs" hidden="true">
         <label class="generic-componentA__label">Component</label>
         
         <select id="acType" type="text">
@@ -30,5 +30,5 @@
 
         <input type="button" class="acbutton" value="Confirm" onclick="addComponent(this);">
         <input type="button" class="acbutton" value="Cancel" onclick="makeHidden(this.parentElement, 'acContent','acInput')">
-    </div>
-</div>
+    </section>
+</section>
