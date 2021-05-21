@@ -101,20 +101,19 @@ function addRoom(roomName) {
     nelement.innerHTML = `
     <section id="roomName">\
     <h3>${roomName}</h3>
-            <input type="button" value="Edit" onclick="makeHidden(this.parentElement,'roomInput', 'roomName')">
-            <input type="button" value="Delete" onclick="deleteElement(this.parentElement.parentElement)">
+            
         </section>
-            <section class="headerbuttons" id="roomInput" hidden="true"><input type="text" value="New room"><input type="button" value="Confirm" onclick="editRoomName(this, 'roomInput', 'roomName' )"></section> 
+            
     <div class=\"tooltip\">\
     <button class=\"hide-image-btn\" type=\"button\" onclick=\"makeHidden(this.parentElement.parentElement,'roomInput', 'roomName')\"></button>\
     <span class=\"tooltiptext\">Hide</span>\
   </div>\
  <div class=\"tooltip\">\
-    <button class=\"delete-image-btn\" type=\"button\" onclick=\"deleteElement(this.parentElement.parentElement.parentElement)\"></button>\
+    <button class=\"delete-image-btn\" type=\"button\" onclick=\"deleteElement(this.parentElement.parentElement)\"></button>\
     <span class=\"tooltiptext\">Delete</span>\
   </div>
         </div>
-            <div class="headerbuttons" id="roomInput" hidden="true"><input type="text" value="Room 1"><button type="button" onclick="editRoomName(this, 'roomInput', 'roomName' )">Ok</button></div> 
+            <div class="headerbuttons" id="roomInput" hidden="true"><input type="text" value="New room"><button type="button" onclick="editRoomName(this, 'roomInput', 'roomName' )">Ok</button></div> 
                             <add-component 
                             heading="Add device">
                         </add-component>
@@ -203,7 +202,7 @@ function addRoomsOptions(responseData) {
                 <span class=\"tooltiptext\">Hide</span>\
               </section>\
              <section class=\"tooltip\">\
-                <button class=\"delete-image-btn\" type=\"button\" onclick=\"deleteElement(this.parentElement.parentElement.parentElement)\"></button>\
+                <button class=\"delete-image-btn\" type=\"button\" onclick=\"deleteElement(this.parentElement.parentElement)\"></button>\
                 <span class=\"tooltiptext\">Delete</span>\
               </section>\
             </section>\

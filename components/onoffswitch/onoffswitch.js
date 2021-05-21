@@ -34,7 +34,7 @@ class onoffswitch extends HTMLElement {
 
         let lightSwitch = doc.querySelector('#check');
 
-        lightSwitch.addEventListener('change', function() {
+        doc.getElementById('img').onclick =  function() {
           console.log(this.value);
           if (this.value == 'on') {
             this.value = 'off';
@@ -44,7 +44,7 @@ class onoffswitch extends HTMLElement {
             this.value = 'on';
             this.src = "./assets/images/b.png";
           }
-        });
+        };
         doc.getElementById('oosSelectDevice').onchange = function () {
           const ddl = findChild(that.childNodes, 'oosSelectDevice');
           findChild(that.childNodes, 'heading').innerHTML = ddl.options[ddl.selectedIndex].text;
